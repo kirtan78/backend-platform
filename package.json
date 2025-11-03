@@ -1,0 +1,21 @@
+{
+  "name": "backend-platform",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "start:issue-tracker": "cd apps/issue-tracker && npm start",
+    "start:notification-service": "cd apps/notification-service && npm start",
+    "start:analytics-platform": "cd apps/analytics-platform && npm start",
+    "test:issue-tracker": "cd apps/issue-tracker && npm test",
+    "docker:up": "docker-compose up -d",
+    "docker:down": "docker-compose down",
+    "seed": "cd apps/issue-tracker && npm run seed"
+  },
+  "devDependencies": {
+    "jest": "^29.0.0"
+  }
+}
