@@ -1,0 +1,9 @@
+{
+  "name": "@backend-platform/config",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "dotenv": "^16.3.0",
+    "joi": "^17.11.0"
+  }
+}
