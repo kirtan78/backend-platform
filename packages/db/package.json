@@ -1,0 +1,10 @@
+{
+  "name": "@backend-platform/db",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "ioredis": "^5.3.0",
+    "mongoose": "^8.0.0",
+    "pg": "^8.11.0"
+  }
+}
