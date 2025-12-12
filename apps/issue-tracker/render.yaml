@@ -1,0 +1,51 @@
+services:
+  - type: web
+    name: issue-tracker
+    env: node
+    rootDir: .
+    buildCommand: "npm install && cd apps/issue-tracker && npm install && node scripts/migrate.js"
+    startCommand: "cd apps/issue-tracker && node src/server.js"
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: JWT_SECRET
+        generateValue: true
+      - key: POSTGRES_HOST
+        fromDatabase:
+          name: backend-platform-db
+          property: host
+      - key: POSTGRES_PORT
+        fromDatabase:
+          name: backend-platform-db
+          property: port
+      - key: POSTGRES_DB
+        fromDatabase:
+          name: backend-platform-db
+          property: database
+      - key: POSTGRES_USER
+        fromDatabase:
+          name: backend-platform-db
+          property: user
+      - key: POSTGRES_PASSWORD
+        fromDatabase:
+          name: backend-platform-db
+          property: password
+      - key: REDIS_HOST
+        fromService:
+          name: backend-platform-redis
+          type: redis
+          property: host
+      - key: REDIS_PORT
+        fromService:
+          name: backend-platform-redis
+          type: redis
+          property: port
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: SEED_SECRET
+        generateValue: true
+
+databases:
+  - name: backend-platform-db
+    databaseName: backend_platform
+    user: backend_platform
